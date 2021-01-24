@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ingredients
+  resources :recipes
   resources :users, only: [:create]
 
   post '/login', to: 'auth#login'
