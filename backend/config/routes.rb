@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :measurements
   resources :ingredients
   resources :recipes
   resources :users, only: [:create]
