@@ -1,0 +1,36 @@
+.header {
+  text-align: center;
+  background-color: #8a8079;
+  color: #f3f5ed;
+  padding-top: 2%;
+  padding-bottom: 3%;
+  width: 100%;
+  margin: 0;
+}
+
+.footer {
+  text-align: center;
+  background-color: #8a8079;
+  color: #9bceb5;
+  padding-top: 2%;
+  padding-bottom: 3%;
+  width: 100%;
+  margin: 0;
+}
+
+.App {
+  margin: 0;
+  background-color: #f3f5ed;
+  min-height: 100vh;
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+  color: #8a8079;
+}
+
+.App-link {
+  color: #d48d61;
+}
+
+a:hover {
+  color: #9bceb5;
+}
