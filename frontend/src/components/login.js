@@ -13,7 +13,7 @@ export default function Login() {
                 <input type="submit" />
             </form>
             </h3>
-            <h4>No account? <a href="#" className="App-link">Sign Up</a></h4>
+            <h4>No account? <a href="/signup" className="App-link">Sign Up</a></h4>
             </div>
         </div>
     )

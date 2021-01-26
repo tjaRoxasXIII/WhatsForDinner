@@ -1,15 +1,15 @@
 import './App.css';
 import Login from '../components/login';
-import { BrowserRouter as Router, Link, Redirect, Route, Switch } from 'react-router-dom'
+import Signup from '../components/signup'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 
 function App() {
 
   return (
     <Router>
     <div className="App">
-      <Switch>
-        <Login />
-      </Switch>
+      <Route exact path="/" component={Login} />
+      <Route exact path="/signup" component={Signup} />
       <footer className="footer">
       © 2021 Taylor Allen
       </footer>
