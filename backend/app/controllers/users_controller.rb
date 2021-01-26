@@ -1,3 +1,4 @@
+require 'pry'
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
   skip_before_action :require_login, only: [:create]
@@ -18,9 +19,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    # respond_to do |format|
       if @user.save
-        UserMailer.with(user: @user).welcome_email.deliver_now
+        # UserMailer.with(user: @user).welcome_email.deliver_now
         payload = {user_id: @user.id, email: @user.email}
         token = JWT.encode(payload, ENV['SECRET_KEY'])
         render json: {user: @user, token: token}, status: :created
