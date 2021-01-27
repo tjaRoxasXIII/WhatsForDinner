@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+// import { useHistory } from 'react-router';
 import { signup } from '../actions/userActions'
 
 export default function Signup() {
@@ -20,7 +21,7 @@ export default function Signup() {
 
     const handleOnSubmit = (event) => {
         event.preventDefault()
-        signup(user)
+        console.log(signup(user))
         
     }
 
