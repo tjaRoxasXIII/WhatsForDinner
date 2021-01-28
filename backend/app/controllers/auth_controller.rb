@@ -10,7 +10,7 @@ class AuthController < ApplicationController
             if user.authenticate(params[:user][:password])
                 token = JWT.encode({
                     user_id: user.id,
-                    name: user.name,
+                    name: user.first_name,
                 }, ENV['SECRET_KEY'])
                 render json: {user: user, token: token}
             else

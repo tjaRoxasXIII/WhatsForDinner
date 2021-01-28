@@ -2,16 +2,16 @@ import './App.css';
 import Login from '../components/login';
 import Signup from '../components/signup';
 import Home from './Home'
-import { useEffect } from 'react'
-import { autoSignIn } from '../actions/userActions'
+// import { useEffect } from 'react'
+// import { autoSignIn } from '../actions/userActions'
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 
 function App() {
-  useEffect((() => {
-    const myToken = localStorage.getItem("token")
-    autoSignIn(myToken)
-    }
-  ))
+  // useEffect((() => {
+  //   const myToken = localStorage.getItem("token")
+  //   autoSignIn(myToken)
+  //   }
+  // ))
 
   return (
     <Router>

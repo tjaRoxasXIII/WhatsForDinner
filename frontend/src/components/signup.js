@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 // import { useHistory } from 'react-router';
-import { signup } from '../actions/userActions'
+import { useDispatch } from 'react-redux'
 
 export default function Signup() {
     //Setting state for form entry fields
@@ -9,6 +9,7 @@ export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [password_confirmation, setPasswordConfirm] = useState('');
+    const dispatch = useDispatch();
 
     const user = {user: {
         first_name,
@@ -21,7 +22,27 @@ export default function Signup() {
 
     const handleOnSubmit = (event) => {
         event.preventDefault()
-        console.log(signup(user))
+        fetch("http://localhost:3000/users", {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(user)
+        })
+            .then(response => response.json())
+            .then(data => { 
+                if (data.user) {
+                    localStorage.setItem("token", data.token)
+                    dispatch({type: 'SIGN_IN', payload: data.user})
+                }
+                else {
+                    console.log(data)
+                    if (data.email) {
+                        alert(`This email address ${data.email}`)
+                    }
+                    else {
+                        alert(`Your Password and Password Confirmation fields do not match.`)
+                    }
+                }
+        })
         
     }
 
