@@ -1,17 +1,39 @@
 import './App.css';
 import Login from '../components/login';
 import Signup from '../components/signup';
-import Home from './Home'
-// import { useEffect } from 'react'
-// import { autoSignIn } from '../actions/userActions'
+import Home from './Home';
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 
 function App() {
-  // useEffect((() => {
-  //   const myToken = localStorage.getItem("token")
-  //   autoSignIn(myToken)
-  //   }
-  // ))
+  const isSignedIn = useSelector(state => state.auth.isSignedIn)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (!!token) {
+      autoSignIn(token)  
+    }  
+  });
+
+  const autoSignIn = (token) => {
+    fetch('http://localhost:3000/auto_login', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then(resp => resp.json())
+      .then(data => {
+              debugger
+              if (data.id) {
+                dispatch({ type: 'SIGN_IN', payload: data})
+                return isSignedIn
+              }
+      })
+  }
+
+
 
   return (
     <Router>
@@ -19,13 +41,13 @@ function App() {
 
       <Switch>
         <Route exact path="/home" component={Home} >
-          {localStorage.getItem('token') ? null : <Redirect to="/" />}
+          {isSignedIn ? null : <Redirect to="/" />}
         </Route>
         <Route exact path="/" component={Login}>
-          {localStorage.getItem('token') ? <Redirect to="/home" /> : null }
+          {isSignedIn ? <Redirect to="/home" /> : null }
         </Route>
         <Route exact path="/signup" component={Signup} >
-          {localStorage.getItem('token') ? <Redirect to="/home" /> : null}
+          {isSignedIn ? <Redirect to="/home" /> : null}
         </Route>
       </Switch>
         

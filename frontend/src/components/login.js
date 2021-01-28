@@ -27,7 +27,6 @@ export default function Login() {
         fetch("http://localhost:3000/login", requestOptions)
             .then(response => response.json())
             .then(data => { 
-                debugger
                 if (data.user) {
                     localStorage.setItem("token", data.token)
                     dispatch({type: 'SIGN_IN', payload: data.user})
