@@ -1,6 +1,5 @@
 import React, { useState }  from 'react'
 import { useDispatch } from 'react-redux'
-// import { signIn } from '../actions/userActions'
 
 export default function Login() {
     const [email, setEmail] = useState('');

@@ -1,6 +1,6 @@
 import './App.css';
-import Login from '../components/login';
-import Signup from '../components/signup';
+import Login from '../components/auth/login';
+import Signup from '../components/auth/signup';
 import Home from './Home';
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
