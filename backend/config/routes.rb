@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   resources :measurements
   resources :ingredients
-  resources :recipes
-  resources :users, only: [:create]
+  resources :users, only: [:index, :create, :show] do
+    resources :recipes
+  end
 
   post '/login', to: 'auth#login'
   get '/auto_login', to: 'auth#auto_login'
