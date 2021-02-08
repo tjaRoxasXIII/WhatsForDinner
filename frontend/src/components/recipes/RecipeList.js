@@ -5,7 +5,7 @@ import Recipe from './Recipe'
     return (
         <div >
             { recipes.map(recipe => <Recipe 
-                name={recipe.name}
+                recipe={recipe}
             />)}
         </div>
     )

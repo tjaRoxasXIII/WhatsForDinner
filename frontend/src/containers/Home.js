@@ -28,7 +28,7 @@ export default function Home() {
             <h2 className="header">What's for dinner, {yourName}?
                 <button className="Options" onClick={signOut}>Sign Out</button>
             </h2>
-            <h5>*You'll want to create a recipe component here*</h5>
+            <h4>Check out the Recipes:</h4>
             <RecipeList recipes={yourRecipes}/>
         </div>
     )

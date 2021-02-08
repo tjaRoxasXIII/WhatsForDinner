@@ -40,3 +40,10 @@ a:hover {
   float: right;
   
 }
+
+.recipe_card {
+  background: white;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.212);
+  max-width: 60%;
+  margin: auto;
+}
