@@ -19,7 +19,7 @@ const Recipe = ({ recipe }) => {
                 </li>
             </ul>
         </div>
-    
+
     return (
         <div className="recipe_card">
             {card}
